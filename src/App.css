@@ -45,9 +45,8 @@ body {
   }
 
   .all-image-box {
-    height: 300px;
-    width: 300px;
-    border-radius: 50%;
+    height: 250px;
+    width: 100%;
     overflow: hidden;
   }
 
@@ -94,15 +93,22 @@ body {
   }
 
   .all-image-box {
-    height: 200px;
-    width: 200px;
-    border-radius: 50%;
+    height: 250px;
+    width: 100%;
     overflow: hidden;
   }
 
   .display-text {
     font-size: 14px;
     font-weight: normal;
+  }
+
+  .social-links ul {
+    gap: 10px;
+  }
+
+  footer p {
+    font-size: 12px;
   }
 
 }

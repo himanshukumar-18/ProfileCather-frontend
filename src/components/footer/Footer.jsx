@@ -4,7 +4,9 @@ const Footer = () => {
     <>
       <footer className="w-full flex justify-center items-center h-[5vh] bg-[#111827]">
         <p className="text-[#E5E7EB] text-[14px]">
-          Copyright © 2025 - ProfileCatcher
+          Copyright © 2025 - ProfileCatcher Develop by <a className="underline" href="https://github.com/himanshukumar-18" target="_blank">
+            <span>Himanshu Kumar</span>
+          </a>
         </p>
       </footer>
     </>

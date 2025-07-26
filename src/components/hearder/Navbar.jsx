@@ -12,14 +12,14 @@ const Navbar = () => {
           <div className="social-links">
             <ul className="flex gap-5 text-[#E5E7EB]">
               <li>
-                <a href="/github">
+                <a href="https://github.com/himanshukumar-18" target="_blank">
                   <div>
                     <img className="h-[40px] all-icon" src="https://img.icons8.com/?size=100&id=80462&format=png&color=000000" alt="github" />
                   </div>
                 </a>
               </li>
               <li>
-                <a href="/linkdin">
+                <a href="https://www.linkedin.com/in/himanshu-kumar-8b5845313?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">
                   <div>
                     <img className="h-[40px] all-icon" src="https://img.icons8.com/?size=100&id=xuvGCOXi8Wyg&format=png&color=000000" alt="linkdin" />
                   </div>

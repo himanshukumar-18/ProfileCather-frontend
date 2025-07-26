@@ -1,18 +1,21 @@
 import { useState } from 'react';
 import './App.css';
-import { Navbar, Footer, DisplayResult } from "./index";
-import axios from 'axios';
+import { Navbar, Footer, DisplayResult, axios, Loader } from "./index";
 
 function App() {
   const [username, setUsername] = useState("");
   const [userData, setUserData] = useState(null);
+  const [loader, setLoader] = useState(false);
 
   const handleSubmit = async () => {
     try {
-      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/github`, { username });
+      setLoader(true)
+      const { data } = await axios.post("/github", { username });
       setUserData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
+    } finally {
+      setLoader(false)
     }
   };
 
@@ -21,7 +24,7 @@ function App() {
       <Navbar />
       <main className='min-h-[85vh] max-h-fit'>
         <div className='flex h-full px-[20rem] items-center all-x-p'>
-          <div className='result-container py-[50px] w-full '>
+          <div className='result-container py-[50px] w-full flex flex-col items-center'>
             {/* top: input */}
             <div className='w-full flex justify-center'>
               <div className='input-container flex items-center mb-[50px]'>
@@ -35,17 +38,23 @@ function App() {
                 />
                 <button
                   onClick={handleSubmit}
-                  className='all-btn bg-[#22D3EE] text-[#0F172A] text-[18px] py-[15px] px-[20px] ml-2'
+                  className='all-btn bg-[#22D3EE] text-[#0F172A] text-[18px] py-[15px] px-[20px] ml-2 cursor-pointer'
                 >
                   Search
                 </button>
               </div>
             </div>
 
+            {/* loader */}
+            {loader && (
+              <Loader />
+            )}
+
             {/* bottom: Display Result */}
             {userData && (
-              <div className='flex flex-col items-center'>
-                <div className="outline-5 all-image-box h-[400px] w-[400px] outline-[#22D3EE]">
+
+              <div className='flex w-fit flex-col items-center bg-[#22D3EE] p-[10px]'>
+                <div className="all-image-box h-[300px] w-[300px]">
                   <img
                     className="h-full w-full object-cover"
                     src={userData.avatar_url}
@@ -53,10 +62,10 @@ function App() {
                   />
                 </div>
 
-                <div className='display-gap flex flex-col gap-[30px] mt-[50px]'>
-                  <DisplayResult displayText={userData.name} />
-                  <DisplayResult displayText={userData.login} />
-                  <DisplayResult displayText={userData.bio} />
+                <div className='display-gap flex flex-col gap-[15px] mt-[30px]'>
+                  <DisplayResult lable={"NAME"} displayText={userData.name} />
+                  <DisplayResult lable={"USERNAME"} displayText={userData.login} />
+                  <DisplayResult lable={"BIO"} displayText={userData.bio} />
                 </div>
               </div>
             )}
