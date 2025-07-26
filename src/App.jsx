@@ -9,7 +9,7 @@ function App() {
 
   const handleSubmit = async () => {
     try {
-      const { data } = await axios.post("/api/github", { username });
+      const { data } = await axios.post(`${import.meta.env.VITE_API_URL}/api/github`, { username });
       setUserData(data);
     } catch (error) {
       console.error("Error fetching data:", error);
