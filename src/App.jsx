@@ -11,7 +11,7 @@ function App() {
     try {
       setLoader(true)
       const { data } = await axios.post("/github", { username });
-      setUserData(data);
+      setUserData(data); 
     } catch (error) {
       console.error("Error fetching data:", error);
     } finally {
@@ -53,7 +53,7 @@ function App() {
             {/* bottom: Display Result */}
             {userData && (
 
-              <div className='flex w-fit flex-col items-center bg-[#22D3EE] p-[10px]'>
+              <div className='display-wrapper flex w-fit flex-col items-center bg-[#22D3EE] p-[10px]'>
                 <div className="all-image-box h-[300px] w-[300px]">
                   <img
                     className="h-full w-full object-cover"

@@ -99,7 +99,7 @@ body {
   }
 
   .display-text {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: normal;
   }
 
@@ -108,7 +108,19 @@ body {
   }
 
   footer p {
-    font-size: 12px;
+    font-size: 10px;
+  }
+
+  .display-wrapper {
+    width: 100%;
+  }
+
+  .display-gap {
+    width: 100%;
+  }
+
+  .username {
+    width: 100%;
   }
 
 }
