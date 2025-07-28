@@ -7,9 +7,9 @@ function App() {
   const [userData, setUserData] = useState(null);
   const [loader, setLoader] = useState(false);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    setLoader(true)
     try {
-      setLoader(true)
       const { data } = await axios.post("/github", { username });
       setUserData(data); 
     } catch (error) {
@@ -18,6 +18,7 @@ function App() {
       setLoader(false)
     }
   };
+
 
   return (
     <>
@@ -63,9 +64,11 @@ function App() {
                 </div>
 
                 <div className='display-gap flex flex-col gap-[15px] mt-[30px]'>
-                  <DisplayResult lable={"NAME"} displayText={userData.name} />
+                  <DisplayResult lable={"NAME"} displayText={userData.name || "Not Mention"} />
                   <DisplayResult lable={"USERNAME"} displayText={userData.login} />
-                  <DisplayResult lable={"BIO"} displayText={userData.bio} />
+                  <DisplayResult lable={"BIO"} displayText={userData.bio || "Blank"} />
+                  <DisplayResult lable={"FOLLOWERS"} displayText={userData.followers || 0} />
+                  <DisplayResult lable={"COUNTRY"} displayText={userData.location || "Not Mention"} />
                 </div>
               </div>
             )}
