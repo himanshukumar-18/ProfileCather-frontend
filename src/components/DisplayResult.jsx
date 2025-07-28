@@ -1,5 +1,3 @@
-import React from 'react'
-
 const DisplayResult = ({ displayText, lable }) => {
     return (
         <div className='username w-fit'>

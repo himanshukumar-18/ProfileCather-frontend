@@ -30,7 +30,7 @@ function App() {
             <div className='w-full flex justify-center'>
               <div className='input-container flex items-center mb-[50px]'>
                 <input
-                  className="all-input outline-0 bg-[#E5E7EB] px-[15px] py-[15px] text-[18px] placeholder:text-[#0F172A] text-[#0F172A] w-[300px]"
+                  className="all-input outline-0 bg-[#E5E7EB] px-[15px] py-[15px] text-[18px] placeholder:text-[#0F172A] text-[#0F172A] w-[300px] rounded-[10px]"
                   type="text"
                   placeholder="Search GitHub profile"
                   value={username}
@@ -39,7 +39,7 @@ function App() {
                 />
                 <button
                   onClick={handleSubmit}
-                  className='all-btn bg-[#22D3EE] text-[#0F172A] text-[18px] py-[15px] px-[20px] ml-2 cursor-pointer'
+                  className='all-btn bg-[#22D3EE] text-[#0F172A] text-[18px] py-[15px] px-[20px] ml-2 cursor-pointer rounded-[10px]'
                 >
                   Search
                 </button>
@@ -54,8 +54,8 @@ function App() {
             {/* bottom: Display Result */}
             {userData && (
 
-              <div className='display-wrapper flex w-fit flex-col items-center bg-[#22D3EE] p-[10px]'>
-                <div className="all-image-box h-[300px] w-[300px]">
+              <div className='display-wrapper flex w-fit flex-col items-center bg-[#22D3EE] p-[10px] rounded-[10px]'>
+                <div className="all-image-box h-[300px] w-[300px] rounded-[10px] overflow-hidden">
                   <img
                     className="h-full w-full object-cover"
                     src={userData.avatar_url}
